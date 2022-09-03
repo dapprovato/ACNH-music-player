@@ -1,3 +1,6 @@
+let playSongs = []
+let currentIndex = 0
+
 function processData(data) {
     const songs = []
     Object.entries(data).map(entry => {
@@ -5,14 +8,13 @@ function processData(data) {
         songs.push(value)
         console.log(value);
     });
-    const playSongs = songs.map(function (song) {
+    playSongs = songs.map(function (song) {
         return song.music_uri
     })
 
-    let currentIndex = Math.floor(Math.random() * playSongs.length)
-
     const awwDeeOhh = document.createElement("audio")
     awwDeeOhh.id = 'song'
+    currentIndex = Math.floor(Math.random() * playSongs.length)
     awwDeeOhh.src = playSongs[currentIndex]
     awwDeeOhh.controls = "controls"
     //awwDeeOhh.loop = true
@@ -20,15 +22,19 @@ function processData(data) {
 
     const nextSong = document.getElementById('song')
     nextSong.onended = function() {
-    awwDeeOhh.src = playSongs[Math.floor(Math.random() * playSongs.length)]
+    currentIndex = Math.floor(Math.random() * playSongs.length)
+    awwDeeOhh.src = playSongs[currentIndex]
+    songTitle.textContent = showSongs[currentIndex]
     awwDeeOhh.autoplay = true;
     }
 
-    let showSongs = songs.map(function (song) {
-        return song.name
-        //returns array of objects , key/value of name-USen: 'Agent K.K.' etc...
+    const showSongs = songs.map(function (song) {
+        return song.name['name-USen']
     })
-    console.log(showSongs)
+    const songTitle = document.createElement('div')
+    songTitle.id = 'name'
+    document.body.appendChild(songTitle)
+    songTitle.textContent = showSongs[currentIndex]
 }
 
 fetch ('http://acnhapi.com/v1/songs/')

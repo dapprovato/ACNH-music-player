@@ -9,9 +9,11 @@ function processData(data) {
         return song.music_uri
     })
 
+    let currentIndex = Math.floor(Math.random() * playSongs.length)
+
     const awwDeeOhh = document.createElement("audio")
     awwDeeOhh.id = 'song'
-    awwDeeOhh.src = playSongs[Math.floor(Math.random() * playSongs.length)]
+    awwDeeOhh.src = playSongs[currentIndex]
     awwDeeOhh.controls = "controls"
     //awwDeeOhh.loop = true
     document.body.appendChild(awwDeeOhh)

@@ -40,3 +40,10 @@ function processData(data) {
 fetch ('http://acnhapi.com/v1/songs/')
 .then((response) => response.json())
 .then((data) => processData(data));
+
+const playBtn = document.getElementById('play')
+const pauseBtn = document.getElementById('pause')
+const skipBtn = document.getElementById('skip')
+
+playBtn.addEventListener('click', 'play')
+pauseBtn.addEventListener('click', 'pause')

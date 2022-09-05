@@ -16,3 +16,25 @@ body {
     margin-left: auto;
     margin-right: auto;
 }
+
+#skip {
+    letter-spacing: -3.75px;
+}
+
+#name {
+    color: hotpink;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.buttons {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        width: 10%;
+}
+
+.topnav {
+    color: hotpink;
+}

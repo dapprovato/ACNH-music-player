@@ -16,7 +16,7 @@ function processData(data) {
     awwDeeOhh.id = 'song'
     currentIndex = Math.floor(Math.random() * playSongs.length)
     awwDeeOhh.src = playSongs[currentIndex]
-    awwDeeOhh.controls = "controls"
+    //awwDeeOhh.controls = "controls"
     //awwDeeOhh.loop = true
     document.body.appendChild(awwDeeOhh)
 
@@ -35,15 +35,33 @@ function processData(data) {
     songTitle.id = 'name'
     document.body.appendChild(songTitle)
     songTitle.textContent = showSongs[currentIndex]
+
+    function skipSong() {
+        currentIndex = Math.floor(Math.random() * playSongs.length)
+        song.src = playSongs[currentIndex]
+        songTitle.textContent = showSongs[currentIndex]
+        awwDeeOhh.autoplay = true;
+    }
+
+    skipBtn.addEventListener('click', skipSong)
 }
 
 fetch ('http://acnhapi.com/v1/songs/')
 .then((response) => response.json())
 .then((data) => processData(data));
 
-const playBtn = document.getElementById('play')
+const playBtn = document.getElementById("play")
 const pauseBtn = document.getElementById('pause')
 const skipBtn = document.getElementById('skip')
 
-playBtn.addEventListener('click', 'play')
-pauseBtn.addEventListener('click', 'pause')
+playBtn.addEventListener('click', playSong)
+
+function playSong() {
+    song.play()
+}
+
+pauseBtn.addEventListener('click', pauseSong)
+
+function pauseSong() {
+    song.pause()
+}

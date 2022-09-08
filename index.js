@@ -68,8 +68,6 @@ function pauseSong() {
     song.pause()
 }
 
-
-
 function cursorIcon(event) {
 cursorImg = document.getElementById("cursor")
     cursorImg.style.left = event.clientX + 'px';

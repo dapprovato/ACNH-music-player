@@ -24,6 +24,7 @@ body {
 #name {
     color: hotpink;
     font-family: 'Courier New', Courier, monospace; 
+    font-size: 20px;
     text-align: center;
     margin-left: auto;
     margin-right: auto;

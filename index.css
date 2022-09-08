@@ -1,10 +1,10 @@
 body {
-    background: #fbeded
+    background: #fbeded;
   }
 
   img {
-    max-width: 30%;
-    width: 30%;
+    max-width: 25%;
+    width: 25%;
     height: auto;
     display: block;
     margin-left: auto;
@@ -23,6 +23,7 @@ body {
 
 #name {
     color: hotpink;
+    font-family: 'Courier New', Courier, monospace; 
     text-align: center;
     margin-left: auto;
     margin-right: auto;
@@ -35,6 +36,17 @@ body {
         width: 10%;
 }
 
-.topnav {
+#search {
     color: hotpink;
+    font-family: 'Courier New', Courier, monospace;
+    margin: 500;
+    padding: 500;
+}
+
+#cursor {
+    position: absolute;
+    margin-top: 10px;
+    margin-right: -40px;
+    margin-bottom: 10px;
+    margin-left: -40px;
 }

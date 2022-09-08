@@ -1,6 +1,8 @@
 let playSongs = []
 let currentIndex = 0
 
+const input = document.querySelector('form')
+
 function processData(data) {
     const songs = []
     Object.entries(data).map(entry => {
@@ -43,7 +45,7 @@ function processData(data) {
         awwDeeOhh.autoplay = true;
     }
 
-    skipBtn.addEventListener('click', skipSong)
+    skipBtn.addEventListener('click', skipSong)  
 }
 
 fetch ('http://acnhapi.com/v1/songs/')
@@ -65,3 +67,13 @@ pauseBtn.addEventListener('click', pauseSong)
 function pauseSong() {
     song.pause()
 }
+
+
+
+function cursorIcon(event) {
+cursorImg = document.getElementById("cursor")
+    cursorImg.style.left = event.clientX + 'px';
+    cursorImg.style.top = event.clientY + 'px';
+}
+
+document.addEventListener('mousemove', cursorIcon)

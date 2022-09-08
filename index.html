@@ -1,18 +1,23 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>K.K. Slider Music Player</title>
-<link rel="stylesheet" href="index.css"/>
+ <title>K.K. Slider Music Player</title>
+ <link rel="stylesheet" href="index.css"/>
 </head>
 
 <body>
-<nav class="topnav">Search</nav>
-<img src="./Images/Cassette_Player_(Pink)_NH_Icon.png" alt="Cassette Player (Pink)">
+  <form id="search" action="" method="POST">
+        <input type="text" id="search_song">
+        <input type="submit" value="Submit">
+  </form>
+<img src="./Images/KK_Slider.png" alt="K.K. Slider">
 <div class="buttons">
     <button id="play">▷</button>
     <button id="pause">⌷⌷</button>
     <button id="skip">▷▷</button>
 </div>
+
+<div id="cursor"> <img id=""src="./Images/Aircheck_Icon.png" alt=""> </div>
 </body>
 
 <script src="index.js"></script>

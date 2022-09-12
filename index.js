@@ -45,7 +45,7 @@ function processData(data) {
         awwDeeOhh.autoplay = true;
     }
 
-    skipBtn.addEventListener('click', skipSong)  
+    skipBtn.addEventListener('click', skipSong)
 }
 
 fetch ('http://acnhapi.com/v1/songs/')
@@ -75,3 +75,12 @@ cursorImg = document.getElementById("cursor")
 }
 
 document.addEventListener('mousemove', cursorIcon)
+
+addEventListener('keypress', keyPause)
+
+    function keySkip(event) {
+        if (event.code === 'Space') {
+            song.pause()
+        }
+        console.log(event)
+    }

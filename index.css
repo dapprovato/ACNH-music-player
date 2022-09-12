@@ -3,8 +3,8 @@ body {
   }
 
   img {
-    max-width: 25%;
-    width: 25%;
+    max-width: 20%;
+    width: 20%;
     height: auto;
     display: block;
     margin-left: auto;
@@ -14,7 +14,7 @@ body {
 #song {
     align: center;
     margin-left: auto;
-    margin-right: auto;
+    margin-right: auto%;
 }
 
 #skip {

@@ -46,26 +46,45 @@ function processData(data) {
     }
 
     skipBtn.addEventListener('click', skipSong)
+
+    addEventListener('keypress', keyPlayPause)
+
+    function keyPlayPause(event) {
+        if (event.code === 'Space') {
+            if (song.paused === true) {
+                song.play()
+                playPauseBtn.innerHTML = "⌷⌷"
+            } else {
+                song.pause()
+                playPauseBtn.innerHTML = "▷"
+            }
+        }
+            if (event.code === 'Enter') {
+                currentIndex = Math.floor(Math.random() * playSongs.length)
+                song.src = playSongs[currentIndex]
+                songTitle.textContent = showSongs[currentIndex]
+             awwDeeOhh.autoplay = true;
+        }
+    }
 }
 
 fetch ('http://acnhapi.com/v1/songs/')
 .then((response) => response.json())
 .then((data) => processData(data));
 
-const playBtn = document.getElementById("play")
-const pauseBtn = document.getElementById('pause')
+const playPauseBtn = document.getElementById("play_and_pause")
 const skipBtn = document.getElementById('skip')
 
-playBtn.addEventListener('click', playSong)
+playPauseBtn.addEventListener('click', playOrPauseSong)
 
-function playSong() {
-    song.play()
-}
-
-pauseBtn.addEventListener('click', pauseSong)
-
-function pauseSong() {
-    song.pause()
+function playOrPauseSong() {
+    if (song.paused === true) {
+        song.play()
+        playPauseBtn.innerHTML = "⌷⌷"
+    } else {
+        song.pause()
+        playPauseBtn.innerHTML = "▷"
+    }
 }
 
 function cursorIcon(event) {
@@ -76,11 +95,22 @@ cursorImg = document.getElementById("cursor")
 
 document.addEventListener('mousemove', cursorIcon)
 
-addEventListener('keypress', keyPause)
+// addEventListener('keypress', keyPlayPause)
 
-    function keySkip(event) {
-        if (event.code === 'Space') {
-            song.pause()
-        }
-        console.log(event)
-    }
+//     function keyPlayPause(event) {
+//         if (event.code === 'Space') {
+//             if (song.paused === true) {
+//                 song.play()
+//                 playPauseBtn.innerHTML = "⌷⌷"
+//             } else {
+//                 song.pause()
+//                 playPauseBtn.innerHTML = "▷"
+//             }
+//         }
+//             if (event.code === 'Enter') {
+//                 currentIndex = Math.floor(Math.random() * playSongs.length)
+//                 song.src = playSongs[currentIndex]
+//                 songTitle.textContent = showSongs[currentIndex]
+//              awwDeeOhh.autoplay = true;
+//         }
+//     }

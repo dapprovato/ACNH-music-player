@@ -1,8 +1,6 @@
 let playSongs = []
 let currentIndex = 0
 
-const input = document.querySelector('form')
-
 function processData(data) {
     const songs = []
     Object.entries(data).map(entry => {
@@ -94,23 +92,3 @@ cursorImg = document.getElementById("cursor")
 }
 
 document.addEventListener('mousemove', cursorIcon)
-
-// addEventListener('keypress', keyPlayPause)
-
-//     function keyPlayPause(event) {
-//         if (event.code === 'Space') {
-//             if (song.paused === true) {
-//                 song.play()
-//                 playPauseBtn.innerHTML = "⌷⌷"
-//             } else {
-//                 song.pause()
-//                 playPauseBtn.innerHTML = "▷"
-//             }
-//         }
-//             if (event.code === 'Enter') {
-//                 currentIndex = Math.floor(Math.random() * playSongs.length)
-//                 song.src = playSongs[currentIndex]
-//                 songTitle.textContent = showSongs[currentIndex]
-//              awwDeeOhh.autoplay = true;
-//         }
-//     }

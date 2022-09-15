@@ -1,9 +1,17 @@
-## Animal Crossing New Horizons K.K. Slider Music Player
+# Animal Crossing New Horizons K.K. Slider Music Player
 
-# Description
-API : http://acnhapi.com/
-- Pulls song data from API by mapping
-- adds mp3 file URI to empty array
-- uses `Math.random()` to create randomized playlist
-- songs can be played/paused/skipped using provided buttons or by corresponding keypresses (play/pause = space bar ; skip = enter)
-- uses mousemove event to have selected img follow along with cursor
+**API : http://acnhapi.com/**
+
+## Project Description
+
+- Allows users to listen to Animal Crossing New Horizons in-game music using an interactive music player
+- Features include play/pause buttons as well as a skip button to change the current song
+- Users can play/pause and skip songs using keypresses, play/pause corresponds to space bar and skip corresponds to enter
+- Current song title is displayed below the music player buttons
+- Playlist is randomized using `Math.floor(Math.random() * playSongs.length)`
+
+## Possible Future Features
+
+- Search functionality
+- Ability to repeat songs
+- Allow user to change character shown on screen

@@ -1,13 +1,26 @@
+// Initialize global variables
 let playSongs = []
 let currentIndex = 0
 
+const playPauseBtn = document.getElementById("play_and_pause")
+const skipBtn = document.getElementById('skip')
+
+fetch ('http://acnhapi.com/v1/songs/')
+.then((response) => response.json())
+.then((data) => processData(data))
+
 function processData(data) {
     const songs = []
+
+    // Object.entries turn objects into array , ex:
+    // {key: value, key2: value2} --> [['key', 'value'], ['key2', 'value2']]
     Object.entries(data).map(entry => {
-        let value = entry[1];
-        songs.push(value)
-        console.log(value);
-    });
+        // entry[0] is unnecessary info
+        let songData = entry[1]
+        songs.push(songData)
+        console.log(songData)
+    })
+
     playSongs = songs.map(function (song) {
         return song.music_uri
     })
@@ -16,17 +29,7 @@ function processData(data) {
     awwDeeOhh.id = 'song'
     currentIndex = Math.floor(Math.random() * playSongs.length)
     awwDeeOhh.src = playSongs[currentIndex]
-    //awwDeeOhh.controls = "controls"
-    //awwDeeOhh.loop = true
     document.body.appendChild(awwDeeOhh)
-
-    const nextSong = document.getElementById('song')
-    nextSong.onended = function() {
-    currentIndex = Math.floor(Math.random() * playSongs.length)
-    awwDeeOhh.src = playSongs[currentIndex]
-    songTitle.textContent = showSongs[currentIndex]
-    awwDeeOhh.autoplay = true;
-    }
 
     const showSongs = songs.map(function (song) {
         return song.name['name-USen']
@@ -35,6 +38,14 @@ function processData(data) {
     songTitle.id = 'name'
     document.body.appendChild(songTitle)
     songTitle.textContent = showSongs[currentIndex]
+
+    const nextSong = document.getElementById('song')
+    nextSong.onended = function() {
+        currentIndex = Math.floor(Math.random() * playSongs.length)
+        awwDeeOhh.src = playSongs[currentIndex]
+        songTitle.textContent = showSongs[currentIndex]
+        awwDeeOhh.autoplay = true
+    }
 
     function skipSong() {
         currentIndex = Math.floor(Math.random() * playSongs.length)
@@ -45,9 +56,8 @@ function processData(data) {
 
     skipBtn.addEventListener('click', skipSong)
 
-    addEventListener('keypress', keyPlayPause)
-
     function keyPlayPause(event) {
+        // event.code references the keycode for which key is pressed
         if (event.code === 'Space') {
             if (song.paused === true) {
                 song.play()
@@ -61,19 +71,11 @@ function processData(data) {
                 currentIndex = Math.floor(Math.random() * playSongs.length)
                 song.src = playSongs[currentIndex]
                 songTitle.textContent = showSongs[currentIndex]
-             awwDeeOhh.autoplay = true;
+                awwDeeOhh.autoplay = true;
         }
     }
+    addEventListener('keypress', keyPlayPause)
 }
-
-fetch ('http://acnhapi.com/v1/songs/')
-.then((response) => response.json())
-.then((data) => processData(data));
-
-const playPauseBtn = document.getElementById("play_and_pause")
-const skipBtn = document.getElementById('skip')
-
-playPauseBtn.addEventListener('click', playOrPauseSong)
 
 function playOrPauseSong() {
     if (song.paused === true) {
@@ -85,8 +87,10 @@ function playOrPauseSong() {
     }
 }
 
+playPauseBtn.addEventListener('click', playOrPauseSong)
+
 function cursorIcon(event) {
-cursorImg = document.getElementById("cursor")
+const cursorImg = document.getElementById("cursor")
     cursorImg.style.left = event.clientX + 'px';
     cursorImg.style.top = event.clientY + 'px';
 }

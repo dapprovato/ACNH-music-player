@@ -10,6 +10,9 @@
 - Current song title is displayed below the music player buttons
 - Playlist is randomized using `Math.floor(Math.random() * playSongs.length)`
 
+<img width="1195" alt="Screen Shot 2022-09-14 at 10 06 39 PM" src="https://user-images.githubusercontent.com/105393049/190297452-56a2cc14-b742-4f7f-ae75-6466e763ed9e.png">
+
+
 ## Possible Future Features
 
 - Search functionality

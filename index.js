@@ -18,7 +18,7 @@ function getNewRandomSong() {
 const playPauseBtn = document.getElementById("play_and_pause")
 const skipBtn = document.getElementById('skip')
 
-fetch ('http://acnhapi.com/v1/songs/')
+fetch ('https://acnhapi.com/v1/songs/')
 .then((response) => response.json())
 .then((data) => processData(data))
 .catch((error) => console.log(error))
